@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#board{
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 50px auto; 
+    justify-content: center;
+}
+
+.blockA{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.blockB{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}

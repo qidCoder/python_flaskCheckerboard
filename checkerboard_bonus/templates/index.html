@@ -1,0 +1,49 @@
+<!-- Created by Shelley Ophir
+Coding Dojo Oct 2, 2020
+practice linking static files to our template. For this project, we'll render a template that displays a checkerboard
+ Your program should have the outputs below -->
+
+ <!-- BONUS: Have another route accept 4 parameters (i.e. "/<x>/<y>/<color1>/<color2>") and render a checkerboard with x rows and y columns, with alternating colors, color1 and color2 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'style.css')}}">
+
+
+</head>
+
+<body>
+    <div id="board">
+        {%for i in range (0, x, 1):%}
+            <div class="row"><!--must put a div here for flexbox to work correctly-->
+                {%for j in range (0, y, 1):%}
+                    {%if ((j + i) % 2 == 0):%}{#the j + i accounts for the alternating rows#}
+                        {% if (color1 != None):%}{#checks if a color was input in the url by the user, if it is it will override the CSS sheet color with this in-line styling and if not, it will default to the CSS class styling#}
+                            <div class="blockB" style="background-color: {{color1}}"></div>
+                        {%else%}
+                            <div class="blockB"></div>
+                        {%endif%}
+                    {%else:%}
+                        {% if (color1 != None):%}
+                            <div class="blockA" style="background-color: {{color2}}"></div>
+                        {%else%}
+                            <div class="blockA"></div>
+                        {%endif%}
+                    {%endif%}
+                {%endfor%}
+            </div>
+        
+        {%endfor%}
+    </div>
+
+
+
+</body>
+
+</html>

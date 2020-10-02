@@ -1,0 +1,39 @@
+<!-- Created by Shelley Ophir
+Coding Dojo Oct 2, 2020
+practice linking static files to our template. For this project, we'll render a template that displays a checkerboard
+ Your program should have the outputs below -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'style.css')}}">
+
+
+</head>
+
+<body>
+    <div id="board">
+        {%for i in range (0, x, 1):%}
+            <div class="row"><!--must put a div here for flexbox to work correctly-->
+                {%for j in range (0, y, 1):%}
+                    {%if ((j + i) % 2 == 0):%}{#the j + i accounts for the alternating rows#}
+                        <div class="blockB"></div>
+                    {%else:%}
+                        <div class="blockA"></div>
+                    {%endif%}
+                {%endfor%}
+            </div>
+        
+        {%endfor%}
+    </div>
+
+
+
+</body>
+
+</html>
